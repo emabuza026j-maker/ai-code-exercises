@@ -1,3 +1,5 @@
+import argparse from task_manager import TaskManager, TaskPriority from datetime import datetime def main(): parser = argparse.ArgumentParser(description="Task Manager CLI") subparsers = parser.add_subparsers(dest="command") # Create command create_parser = subparsers.add_parser("create") create_parser.add_argument("title", help="Task title") create_parser.add_argument("description", help="Task description") create_parser.add_argument("--due", type=datetime.fromisoformat, help="Due date (YYYY-MM-DD)") create_parser.add_argument("--priority", type=TaskPriority, choices=list(TaskPriority), default=TaskPriority.MEDIUM) create_parser.add_argument("--tags", nargs="*", default=[]) args = parser.parse_args() task_manager = TaskManager() if args.command == "create": task_manager.add_task( title=args.title, description=args.description, due_date=args.due, priority=args.priority,
+
 # task_manager/cli.py
 import argparse
 from datetime import datetime
