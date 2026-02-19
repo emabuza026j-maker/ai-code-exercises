@@ -23,3 +23,4 @@ python -m unittest discover tests
 # Run tests with verbose output
 python -m unittest discover -v tests
 ```
+use-cases/debug-errors-001/python/sample_images/20180326-DJI_0059.jpg
